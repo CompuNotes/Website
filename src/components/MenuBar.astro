@@ -1,0 +1,50 @@
+---
+// Este es un componente de barra de menú en Astro
+const menuItems = [
+  { name: "Inicio", link: "/" },
+  { name: "Acerca de", link: "/about" },
+  { name: "Servicios", link: "/services" },
+  { name: "Contacto", link: "/contact" },
+];
+---
+
+<nav class="menu-bar">
+  <ul>
+    {
+      menuItems.map((item) => (
+        <li>
+          <a href={item.link}>{item.name}</a>
+        </li>
+      ))
+    }
+  </ul>
+</nav>
+
+<style>
+  .menu-bar {
+    background-color: #333;
+    padding: 1rem;
+  }
+
+  .menu-bar ul {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+  }
+
+  .menu-bar li {
+    margin: 0;
+  }
+
+  .menu-bar a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  .menu-bar a:hover {
+    text-decoration: underline;
+  }
+</style>
