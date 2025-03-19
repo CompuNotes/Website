@@ -13,9 +13,12 @@ import "../styles/global.css";
         placeholder="Search for courses, users or document names"
         class="w-full p-4 rounded-full shadow-md"
       />
-      <span class="absolute right-4 top-4 text-gray-500">🔍</span>
+      <span
+        class="absolute right-4 top-4 text-gray-500"
+        aria-label="Search icon"
+        role="img">🔍</span
+      >
     </div>
-
     <section class="mt-10">
       <h2 class="text-2xl font-semibold mb-4">Best rated uploads</h2>
       <div class="grid grid-cols-3 gap-6">
@@ -24,7 +27,22 @@ import "../styles/global.css";
             Document first page preview
           </div>
           <div class="flex justify-between items-center mt-2">
-            <span class="text-lg">⭐⭐⭐⭐</span>
+            <svg
+              class="h-6 w-6 text-yellow-500"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              stroke-width="2"
+              stroke="currentColor"
+              fill="none"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path stroke="none" d="M0 0h24v24H0z"></path>
+              <path
+                d="M12 17.75l-6.172 3.245 1.179-6.873-4.993-4.867 6.9-1.002L12 2l3.086 6.253 6.9 1.002-4.993 4.867 1.179 6.873z"
+              ></path></svg
+            >
           </div>
           <p class="text-sm">Document name</p>
           <p class="text-xs text-gray-700">Username</p>
@@ -34,7 +52,24 @@ import "../styles/global.css";
             Video preview
           </div>
           <div class="flex justify-between items-center mt-2">
-            <span class="text-lg">⭐⭐⭐⭐</span>
+            <div class="flex justify-between items-center mt-2">
+              <svg
+                class="h-6 w-6 text-yellow-500"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                stroke-width="2"
+                stroke="currentColor"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path stroke="none" d="M0 0h24v24H0z"></path>
+                <path
+                  d="M12 17.75l-6.172 3.245 1.179-6.873-4.993-4.867 6.9-1.002L12 2l3.086 6.253 6.9 1.002-4.993 4.867 1.179 6.873z"
+                ></path></svg
+              >
+            </div>
           </div>
           <p class="text-sm">Document name</p>
           <p class="text-xs text-gray-700">Username</p>
@@ -44,7 +79,24 @@ import "../styles/global.css";
             Document first page preview
           </div>
           <div class="flex justify-between items-center mt-2">
-            <span class="text-lg">⭐⭐⭐⭐</span>
+            <div class="flex justify-between items-center mt-2">
+              <svg
+                class="h-6 w-6 text-yellow-500"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                stroke-width="2"
+                stroke="currentColor"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path stroke="none" d="M0 0h24v24H0z"></path>
+                <path
+                  d="M12 17.75l-6.172 3.245 1.179-6.873-4.993-4.867 6.9-1.002L12 2l3.086 6.253 6.9 1.002-4.993 4.867 1.179 6.873z"
+                ></path></svg
+              >
+            </div>
           </div>
           <p class="text-sm">Document name</p>
           <p class="text-xs text-gray-700">Username</p>
