@@ -14,31 +14,83 @@ import "../styles/global.css";
             <div class="upload-section">
                 <div class="upload-columns">
                     <div class="column">
-                        <button class="upload-btn">Upload new document</button>
-                        <input type="text" placeholder="Insert a name for the document" />
-                        <input type="text" placeholder="Write tags for the document" />
+                        <button class="upload-btn rounded-lg bg-blue-500 hover:bg-blue-600" style="
+                            padding: 10px;
+                            border: 1px solid #ccc;
+                            width:100%;">
+                            Upload new document
+                        </button>
+                        <input class="rounded-lg" type="text" placeholder="Insert a name for the document" style="
+                            padding: 10px;
+                            border: 1px solid #ccc;
+                            width:100%;"/>
+                        <input class="rounded-lg" type="text" placeholder="Write tags for the document" style="
+                            padding: 10px;
+                            border: 1px solid #ccc;
+                            width:100%;"/>
                     </div>
                     <div class="column">
-                        <select>
+                        <select class="rounded-lg" style="
+                            padding: 10px;
+                            border: 1px solid #ccc;
+                            width:100%;">
                             <option>Select degree</option>
+                            <option>Computer science</option>
                         </select>
-                        <select>
+                        <select class="rounded-lg" style="
+                            padding: 10px;
+                            border: 1px solid #ccc;
+                            width:100%;">
+                            <option>Select academic year</option>
+                            <option>First year</option>
+                            <option>Second year</option>
+                            <option>Third year</option>
+                            <option>Fourth year</option>
+                        </select>
+                        <select class="rounded-lg" style="
+                            padding: 10px;
+                            border: 1px solid #ccc;
+                            width:100%;">
                             <option>Select course</option>
-                        </select>
-                        <select>
-                            <option>Select subject</option>
+                            <option>AG</option>
+                            <option>FC</option>
+                            <option>FP1</option>
+                            <option>HPI</option>
+                            <option>MD</option>
+                            <option>EC</option>
+                            <option>FP2</option>
+                            <option>FFI</option>
+                            <option>EP</option>
+                            <option>MC</option>
                         </select>
                     </div>
                 </div>
-                <button class="save-btn">Upload to CompuNotes</button>
+                <button class="save-btn rounded-lg bg-blue-500 hover:bg-blue-600 flex" style="margin-top: 20px;">Upload to CompuNotes</button>
             </div>
             <div class="documents-section">
-                <div class="search-bar">
+                
+                <div class="relative max-w-xl mx-auto searchbar">
                     <input
-                        type="text"
-                        placeholder="Search for a document name"
+                      type="text"
+                      placeholder="Search for a document name"
+                      class="w-full p-4 pl-12 rounded-full shadow-md"
                     />
-                </div>
+                    <svg
+                      class="absolute top-1/2 left-4 transform -translate-y-1/2 h-6 w-6 text-gray-500"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      stroke-width="2"
+                      stroke="currentColor"
+                      fill="none"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path stroke="none" d="M0 0h24v24H0z"></path>
+                      <circle cx="10" cy="10" r="7"></circle>
+                      <line x1="21" y1="21" x2="15" y2="15"></line>
+                    </svg>
+                  </div>
                 <h2>My documents</h2>
             </div>
         </div>
@@ -49,6 +101,7 @@ import "../styles/global.css";
 <style>
   main {
       display: flex;
+      background-color: #f3f4f6;
   }
   .container {
       max-width: 1200px;
@@ -63,10 +116,9 @@ import "../styles/global.css";
   }
 
   .upload-section {
-      background-color: #f9f9f9;
+      background-color: #f3f4f6;
       padding: 20px;
       border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
 
   .upload-columns {
@@ -82,39 +134,23 @@ import "../styles/global.css";
   }
 
   .upload-btn, .save-btn {
-      background-color: #007bff;
       color: white;
       border: none;
       padding: 10px 15px;
-      border-radius: 4px;
       cursor: pointer;
       transition: background-color 0.3s;
   }
 
-  .upload-btn:hover, .save-btn:hover {
-      background-color: #0056b3;
-  }
-
-  input[type="text"], select {
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      width: 100%;
+  .save-btn {
+    justify-self: center;
+    justify-content: center;
+    width: 50%;
   }
 
   .documents-section {
-      background-color: #ffffff;
+      background-color: #f3f4f6;
       padding: 20px;
       border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-
-  .search-bar input {
-      width: 100%;
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      margin-bottom: 20px;
   }
 
   h2 {
