@@ -1,0 +1,126 @@
+---
+import MenuBar from '../components/MenuBar.astro';
+import Footer from '../components/Footer.astro';
+import SidebarMyArea from '../components/SidebarMyArea.astro';
+import "../styles/global.css";
+
+---
+<MenuBar />
+<main>
+    <SidebarMyArea />
+    <div class="container">
+        
+        <div class="content">
+            <div class="upload-section">
+                <div class="upload-columns">
+                    <div class="column">
+                        <button class="upload-btn">Upload new document</button>
+                        <input type="text" placeholder="Insert a name for the document" />
+                        <input type="text" placeholder="Write tags for the document" />
+                    </div>
+                    <div class="column">
+                        <select>
+                            <option>Select degree</option>
+                        </select>
+                        <select>
+                            <option>Select course</option>
+                        </select>
+                        <select>
+                            <option>Select subject</option>
+                        </select>
+                    </div>
+                </div>
+                <button class="save-btn">Upload to CompuNotes</button>
+            </div>
+            <div class="documents-section">
+                <div class="search-bar">
+                    <input
+                        type="text"
+                        placeholder="Search for a document name"
+                    />
+                </div>
+                <h2>My documents</h2>
+            </div>
+        </div>
+    </div>
+</main>
+<Footer />
+
+<style>
+  main {
+      display: flex;
+  }
+  .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+  }
+
+  .content {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+  }
+
+  .upload-section {
+      background-color: #f9f9f9;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .upload-columns {
+      display: flex;
+      gap: 20px;
+  }
+
+  .column {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+  }
+
+  .upload-btn, .save-btn {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+  }
+
+  .upload-btn:hover, .save-btn:hover {
+      background-color: #0056b3;
+  }
+
+  input[type="text"], select {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      width: 100%;
+  }
+
+  .documents-section {
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .search-bar input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      margin-bottom: 20px;
+  }
+
+  h2 {
+      margin: 10px 0;
+      font-size: 1.5rem;
+      color: #333;
+  }
+</style>
+
