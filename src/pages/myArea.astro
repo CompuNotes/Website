@@ -1,0 +1,80 @@
+---
+import MenuBar from '../components/MenuBar.astro';
+import Footer from '../components/Footer.astro';
+import SidebarMyArea from '../components/SidebarMyArea.astro';
+import "../styles/global.css";
+
+---
+<MenuBar />
+<main class="flex bg-gray-100">
+    <SidebarMyArea />
+    <div class="container max-w-[1200px] mx-auto p-5">
+        
+        <div class="content flex flex-col gap-5">
+            <div class="upload-section bg-gray-100 p-5 rounded-lg">
+                <div class="upload-columns flex gap-5">
+                    <div class="column flex-1 flex flex-col gap-2.5">
+                        <button class="upload-btn flex rounded-lg bg-blue-500 hover:bg-blue-600 justify-center p-2 border border-gray-300 w-full text-white border-none cursor-pointer transition-colors duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6" style="margin-right: 8px;">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 16.5V9.75m0 0 3 3m-3-3-3 3M6.75 19.5a4.5 4.5 0 0 1-1.41-8.775 5.25 5.25 0 0 1 10.233-2.33 3 3 0 0 1 3.758 3.848A3.752 3.752 0 0 1 18 19.5H6.75Z" />
+                            </svg>
+                            Upload new document
+                        </button>
+                        <input class="rounded-lg p-2 border border-gray-300 w-full" type="text" placeholder="Insert a name for the document"/>
+                        <input class="rounded-lg p-2 border border-gray-300 w-full" type="text" placeholder="Write tags for the document"/>
+                    </div>
+                    <div class="column flex-1 flex flex-col gap-2.5">
+                        <select class="rounded-lg p-2 border border-gray-300 w-full">
+                            <option>Select degree</option>
+                            <option>Computer science</option>
+                        </select>
+                        <select class="rounded-lg p-2 border border-gray-300 w-full">
+                            <option>Select academic year</option>
+                            <option>First year</option>
+                            <option>Second year</option>
+                            <option>Third year</option>
+                            <option>Fourth year</option>
+                        </select>
+                        <select class="rounded-lg p-2 border border-gray-300 w-full">
+                            <option>Select course</option>
+                            <option>course 1</option>
+                            <option>course 2</option>
+                            <option>course 3</option>
+                            <option>course 4</option>
+                            <option>course 5</option>
+                        </select>
+                    </div>
+                </div>
+                <button class="save-btn rounded-lg bg-blue-500 hover:bg-blue-600 flex justify-center p-2 text-white border-none cursor-pointer transition-colors duration-300 justify-self-center w-1/2 mt-5">Upload to CompuNotes</button>
+            </div>
+            <div class="documents-section bg-gray-100 p-5 rounded-lg">
+                
+                <div class="relative max-w-xl mx-auto searchbar">
+                    <input
+                      type="text"
+                      placeholder="Search for a document name"
+                      class="w-full p-4 pl-12 rounded-full shadow-md"
+                    />
+                    <svg
+                      class="absolute top-1/2 left-4 transform -translate-y-1/2 h-6 w-6 text-gray-500"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      stroke-width="2"
+                      stroke="currentColor"
+                      fill="none"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path stroke="none" d="M0 0h24v24H0z"></path>
+                      <circle cx="10" cy="10" r="7"></circle>
+                      <line x1="21" y1="21" x2="15" y2="15"></line>
+                    </svg>
+                  </div>
+                <h2 class="my-2.5 text-xl text-gray-800">My documents</h2>
+            </div>
+        </div>
+    </div>
+</main>
+<Footer />
+
