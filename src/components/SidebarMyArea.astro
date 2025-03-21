@@ -1,34 +1,14 @@
 
-<div class="sidebar">
-    <div class="menu-item active">My Docs</div>
-    <div class="menu-item">Saved Docs</div>
-    <div class="menu-item">Personal Info</div>
-    <div class="menu-item">Settings</div>
+<div class="sidebar w-[250px] h-screen bg-gray-800 text-white flex flex-col p-5">
+    <div class="menu-item active p-[15px] rounded-md mb-2.5 cursor-pointer text-center">My Docs</div>
+    <div class="menu-item hover:bg-gray-600 p-4 rounded-md mb-2.5 cursor-pointer text-center">Saved Docs</div>
+    <div class="menu-item hover:bg-gray-600 p-4 rounded-md mb-2.5 cursor-pointer text-center">Personal Info</div>
+    <div class="menu-item hover:bg-gray-600 p-4 rounded-md mb-2.5 cursor-pointer text-center">Settings</div>
 </div>
 
 
 <style>
-    .sidebar {
-        width: 250px;
-        height: 100vh;
-        background-color: #1f2937;
-        color: white;
-        display: flex;
-        flex-direction: column;
-        padding: 20px;
-        
-    }
-    .sidebar .menu-item {
-        padding: 15px;
-        border-radius: 5px;
-        margin-bottom: 10px;
-        cursor: pointer;
-        text-align: center;
-    }
     .sidebar .menu-item.active {
         background-color: #374151;
-    }
-    .sidebar .menu-item:hover {
-        background-color: #4b5563;
     }
 </style>

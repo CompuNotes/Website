@@ -6,54 +6,36 @@ import "../styles/global.css";
 
 ---
 <MenuBar />
-<main>
+<main class="flex bg-gray-100">
     <SidebarMyArea />
-    <div class="container">
+    <div class="container max-w-[1200px] mx-auto p-5">
         
-        <div class="content">
-            <div class="upload-section">
-                <div class="upload-columns">
-                    <div class="column">
-                        <button class="upload-btn flex rounded-lg bg-blue-500 hover:bg-blue-600 justify-center" style="
-                            padding: 10px;
-                            border: 1px solid #ccc;
-                            width:100%;">
+        <div class="content flex flex-col gap-5">
+            <div class="upload-section bg-gray-100 p-5 rounded-lg">
+                <div class="upload-columns flex gap-5">
+                    <div class="column flex-1 flex flex-col gap-2.5">
+                        <button class="upload-btn flex rounded-lg bg-blue-500 hover:bg-blue-600 justify-center p-2 border border-gray-300 w-full text-white border-none cursor-pointer transition-colors duration-300">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6" style="margin-right: 8px;">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 16.5V9.75m0 0 3 3m-3-3-3 3M6.75 19.5a4.5 4.5 0 0 1-1.41-8.775 5.25 5.25 0 0 1 10.233-2.33 3 3 0 0 1 3.758 3.848A3.752 3.752 0 0 1 18 19.5H6.75Z" />
                             </svg>
                             Upload new document
                         </button>
-                        <input class="rounded-lg" type="text" placeholder="Insert a name for the document" style="
-                            padding: 10px;
-                            border: 1px solid #ccc;
-                            width:100%;"/>
-                        <input class="rounded-lg" type="text" placeholder="Write tags for the document" style="
-                            padding: 10px;
-                            border: 1px solid #ccc;
-                            width:100%;"/>
+                        <input class="rounded-lg p-2 border border-gray-300 w-full" type="text" placeholder="Insert a name for the document"/>
+                        <input class="rounded-lg p-2 border border-gray-300 w-full" type="text" placeholder="Write tags for the document"/>
                     </div>
-                    <div class="column">
-                        <select class="rounded-lg" style="
-                            padding: 10px;
-                            border: 1px solid #ccc;
-                            width:100%;">
+                    <div class="column flex-1 flex flex-col gap-2.5">
+                        <select class="rounded-lg p-2 border border-gray-300 w-full">
                             <option>Select degree</option>
                             <option>Computer science</option>
                         </select>
-                        <select class="rounded-lg" style="
-                            padding: 10px;
-                            border: 1px solid #ccc;
-                            width:100%;">
+                        <select class="rounded-lg p-2 border border-gray-300 w-full">
                             <option>Select academic year</option>
                             <option>First year</option>
                             <option>Second year</option>
                             <option>Third year</option>
                             <option>Fourth year</option>
                         </select>
-                        <select class="rounded-lg" style="
-                            padding: 10px;
-                            border: 1px solid #ccc;
-                            width:100%;">
+                        <select class="rounded-lg p-2 border border-gray-300 w-full">
                             <option>Select course</option>
                             <option>course 1</option>
                             <option>course 2</option>
@@ -63,9 +45,9 @@ import "../styles/global.css";
                         </select>
                     </div>
                 </div>
-                <button class="save-btn rounded-lg bg-blue-500 hover:bg-blue-600 flex justify-center" style="margin-top: 20px;">Upload to CompuNotes</button>
+                <button class="save-btn rounded-lg bg-blue-500 hover:bg-blue-600 flex justify-center p-2 text-white border-none cursor-pointer transition-colors duration-300 justify-self-center w-1/2 mt-5">Upload to CompuNotes</button>
             </div>
-            <div class="documents-section">
+            <div class="documents-section bg-gray-100 p-5 rounded-lg">
                 
                 <div class="relative max-w-xl mx-auto searchbar">
                     <input
@@ -89,71 +71,10 @@ import "../styles/global.css";
                       <line x1="21" y1="21" x2="15" y2="15"></line>
                     </svg>
                   </div>
-                <h2>My documents</h2>
+                <h2 class="my-2.5 text-xl text-gray-800">My documents</h2>
             </div>
         </div>
     </div>
 </main>
 <Footer />
-
-<style>
-  main {
-      display: flex;
-      background-color: #f3f4f6;
-  }
-  .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 20px;
-  }
-
-  .content {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-  }
-
-  .upload-section {
-      background-color: #f3f4f6;
-      padding: 20px;
-      border-radius: 8px;
-  }
-
-  .upload-columns {
-      display: flex;
-      gap: 20px;
-  }
-
-  .column {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-  }
-
-  .upload-btn, .save-btn {
-      color: white;
-      border: none;
-      padding: 10px 15px;
-      cursor: pointer;
-      transition: background-color 0.3s;
-  }
-
-  .save-btn {
-    justify-self: center;
-    width: 50%;
-  }
-
-  .documents-section {
-      background-color: #f3f4f6;
-      padding: 20px;
-      border-radius: 8px;
-  }
-
-  h2 {
-      margin: 10px 0;
-      font-size: 1.5rem;
-      color: #333;
-  }
-</style>
 
