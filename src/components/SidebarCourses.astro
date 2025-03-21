@@ -1,0 +1,68 @@
+<script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js" defer></script>
+
+<div class="sidebar w-[250px] h-screen bg-gray-800 text-white flex flex-col p-5">
+
+    <!-- Menú con sub-opciones -->
+    <div class="menu-item group hover:bg-gray-600 p-4 rounded-md mb-2.5 cursor-pointer text-center" x-data="{ open: false, activeSub: null }">
+        <div @click="open = !open" class="flex justify-between">
+            <span>First year</span>
+            <svg :class="{'rotate-180': open}" class="transition-transform w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+        </div>
+        <div x-show="open" class="ml-4 mt-2">
+            <div @click="activeSub = 'course1'" :class="{'bg-gray-600': activeSub === 'course1'}" class="p-2 cursor-pointer hover:bg-gray-500 rounded-md">Course 1</div>
+            <div @click="activeSub = 'course2'" :class="{'bg-gray-600': activeSub === 'course2'}" class="p-2 cursor-pointer hover:bg-gray-500 rounded-md">Course 2</div>
+            <div @click="activeSub = 'course3'" :class="{'bg-gray-600': activeSub === 'course3'}" class="p-2 cursor-pointer hover:bg-gray-500 rounded-md">Course 3</div>
+        </div>
+    </div>
+
+    <div class="menu-item group hover:bg-gray-600 p-4 rounded-md mb-2.5 cursor-pointer text-center" x-data="{ open: false, activeSub: null }">
+        <div @click="open = !open" class="flex justify-between">
+            <span>Second year</span>
+            <svg :class="{'rotate-180': open}" class="transition-transform w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+        </div>
+        <div x-show="open" class="ml-4 mt-2">
+            <div @click="activeSub = 'course1'" :class="{'bg-gray-600': activeSub === 'course1'}" class="p-2 cursor-pointer hover:bg-gray-500 rounded-md">Course 1</div>
+            <div @click="activeSub = 'course2'" :class="{'bg-gray-600': activeSub === 'course2'}" class="p-2 cursor-pointer hover:bg-gray-500 rounded-md">Course 2</div>
+            <div @click="activeSub = 'course3'" :class="{'bg-gray-600': activeSub === 'course3'}" class="p-2 cursor-pointer hover:bg-gray-500 rounded-md">Course 3</div>
+        </div>
+    </div>
+
+    <div class="menu-item group hover:bg-gray-600 p-4 rounded-md mb-2.5 cursor-pointer text-center" x-data="{ open: false, activeSub: null }">
+        <div @click="open = !open" class="flex justify-between">
+            <span>Third year</span>
+            <svg :class="{'rotate-180': open}" class="transition-transform w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+        </div>
+        <div x-show="open" class="ml-4 mt-2">
+            <div @click="activeSub = 'course1'" :class="{'bg-gray-600': activeSub === 'course1'}" class="p-2 cursor-pointer hover:bg-gray-500 rounded-md">Course 1</div>
+            <div @click="activeSub = 'course2'" :class="{'bg-gray-600': activeSub === 'course2'}" class="p-2 cursor-pointer hover:bg-gray-500 rounded-md">Course 2</div>
+            <div @click="activeSub = 'course3'" :class="{'bg-gray-600': activeSub === 'course3'}" class="p-2 cursor-pointer hover:bg-gray-500 rounded-md">Course 3</div>
+        </div>
+    </div>
+
+    <div class="menu-item group hover:bg-gray-600 p-4 rounded-md mb-2.5 cursor-pointer text-center" x-data="{ open: false, activeSub: null }">
+        <div @click="open = !open" class="flex justify-between">
+            <span>Fourth year</span>
+            <svg :class="{'rotate-180': open}" class="transition-transform w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+        </div>
+        <div x-show="open" class="ml-4 mt-2">
+            <div @click="activeSub = 'course1'" :class="{'bg-gray-600': activeSub === 'course1'}" class="p-2 cursor-pointer hover:bg-gray-500 rounded-md">Course 1</div>
+            <div @click="activeSub = 'course2'" :class="{'bg-gray-600': activeSub === 'course2'}" class="p-2 cursor-pointer hover:bg-gray-500 rounded-md">Course 2</div>
+            <div @click="activeSub = 'course3'" :class="{'bg-gray-600': activeSub === 'course3'}" class="p-2 cursor-pointer hover:bg-gray-500 rounded-md">Course 3</div>
+        </div>
+    </div>
+
+</div>
+
+<style>
+    .sidebar .menu-item.active {
+        background-color: #374151;
+    }
+</style>
