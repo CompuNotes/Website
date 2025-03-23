@@ -5,25 +5,33 @@ import "../styles/global.css";
 ---
 
 <MenuBarName />
+
 <div class="flex items-center justify-center min-h-screen bg-gray-200">
   <div class="bg-blue-300 p-8 rounded-lg shadow-md w-96">
     <h2 class="text-white text-center text-xl font-bold mb-4">Log in</h2>
-    <form>
+    <form id="loginForm">
       <input
+        id="username"
         type="text"
         placeholder="Email or username"
         class="w-full p-2 mb-4 rounded-lg border-none outline-none"
       />
       <input
+        id="password"
         type="password"
         placeholder="Password"
         class="w-full p-2 mb-4 rounded-lg border-none outline-none"
       />
       <button
+        type="submit"
         class="w-full bg-blue-500 text-white p-2 rounded-lg hover:bg-blue-600"
-        >Log in</button
       >
+        Log in
+      </button>
     </form>
+    <div id="errorMessage" class="mt-4 text-center text-sm text-red-500 hidden">
+      Invalid username or password.
+    </div>
     <div class="mt-4 text-center text-sm text-gray-700">
       <a href="signup" class="underline">Create an account</a>
       <p>or</p>
@@ -32,3 +40,20 @@ import "../styles/global.css";
   </div>
 </div>
 <Footer />
+
+<script>
+  document.getElementById("loginForm").addEventListener("submit", function (e) {
+    e.preventDefault(); // Evita que el formulario se envíe automáticamente
+
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
+    const errorMessage = document.getElementById("errorMessage");
+
+    // Validación de credenciales
+    if (username === "admin" && password === "admin") {
+      window.location.href = "/myArea"; // Redirige a la página myArea
+    } else {
+      errorMessage.classList.remove("hidden"); // Muestra el mensaje de error
+    }
+  });
+</script>
