@@ -1,0 +1,51 @@
+<header class="bg-gray-800 text-white py-5">
+  <div class="container mx-auto px-6 flex items-center justify-between">
+    <div class="text-xl font-bold flex flex-1 justify-center">CompuNotes</div>
+    <nav class="space-x-6 text-center flex-1">
+      <a href="/" class="nav-link">Main menu</a>
+      <a href="/information" class="nav-link">Information</a>
+      <a href="/courses" class="nav-link">Courses</a>
+      <a href="/teachers" class="nav-link">Teachers</a>
+    </nav>
+    <div class="flex-1 flex justify-end items-center space-x-4">
+      <a href="login" class="hover:text-blue-400">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="w-10 h-10 text-white bg-gray-700 rounded-full p-2"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M5.121 17.804A9.953 9.953 0 0112 15c2.21 0 4.21.714 5.879 1.804M15 11a3 3 0 11-6 0 3 3 0 016 0zM12 2a10 10 0 100 20 10 10 0 000-20z"
+          ></path>
+        </svg>
+      </a>
+      <a
+        href="/"
+        class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
+      >
+        Logout
+      </a>
+    </div>
+  </div>
+</header>
+
+<script>
+  // Obtener la ruta actual
+  const currentPath = window.location.pathname;
+
+  // Seleccionar todos los enlaces de navegación
+  const links = document.querySelectorAll(".nav-link");
+
+  links.forEach((link) => {
+    if (link.getAttribute("href") === currentPath) {
+      link.classList.add("text-blue-300"); // Activo
+    } else {
+      link.classList.add("text-white"); // Inactivo
+    }
+  });
+</script>
