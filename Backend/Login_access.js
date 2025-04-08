@@ -2,7 +2,7 @@
 async function loginUser(username, password) {
     console.log("inicio de la función loginUser");
     try {
-        const response = await axios.post("https://django.narurm.eu/compunotesapi/user/", {
+        const response = await axios.post("https://django.narurm.eu/compunotesapi/", {
             username: username,
             password: password
         });
