@@ -5,6 +5,9 @@ import "../styles/global.css";
 ---
 
 <MenuBarName />
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js" defer
+></script>
+<script src="../../Backend/Login_access.js" defer></script>
 
 <div class="flex items-center justify-center min-h-screen bg-gray-200">
   <div class="bg-blue-300 p-8 rounded-lg shadow-md w-96">
@@ -15,12 +18,14 @@ import "../styles/global.css";
         type="text"
         placeholder="Email or username"
         class="w-full p-2 mb-4 rounded-lg border-none outline-none"
+        required
       />
       <input
         id="password"
         type="password"
         placeholder="Password"
         class="w-full p-2 mb-4 rounded-lg border-none outline-none"
+        required
       />
       <button
         type="submit"
@@ -39,21 +44,25 @@ import "../styles/global.css";
     </div>
   </div>
 </div>
+
+<!-- <script>
+  document
+    .getElementById("loginForm")
+    .addEventListener("submit", async function (event) {
+      event.preventDefault();
+
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+      const errorMessage = document.getElementById("errorMessage");
+
+      try {
+        // Llama a la función del archivo login_user.js
+        await loginUser(username, password);
+      } catch (error) {
+        errorMessage.textContent = error.message;
+        errorMessage.classList.remove("hidden");
+      }
+    });
+</script> -->
+
 <Footer />
-
-<script>
-  document.getElementById("loginForm").addEventListener("submit", function (e) {
-    e.preventDefault(); // Evita que el formulario se envíe automáticamente
-
-    const username = document.getElementById("username").value;
-    const password = document.getElementById("password").value;
-    const errorMessage = document.getElementById("errorMessage");
-
-    // Validación de credenciales
-    if (username === "admin" && password === "admin") {
-      window.location.href = "/myArea"; // Redirige a la página myArea
-    } else {
-      errorMessage.classList.remove("hidden"); // Muestra el mensaje de error
-    }
-  });
-</script>
