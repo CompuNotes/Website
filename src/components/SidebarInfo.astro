@@ -8,42 +8,43 @@
   }"
 >
 
-    <!-- General info -->
-    <div 
-      class="menu-item group hover:bg-gray-600 p-4 rounded-md mb-2.5 cursor-pointer text-center"
-      :class="{'bg-gray-600': selected === 'general'}"
-      @click="selected = 'general'; openYear = null"
-    >
-      <span>General information of the grade</span>
-    </div>
+  <!-- General info -->
+  <a 
+    href="/courses/general"
+    class="menu-item group hover:bg-gray-600 p-4 rounded-md mb-2.5 cursor-pointer text-center block"
+    :class="{'bg-gray-600': selected === 'general'}"
+    @click="selected = 'general'; openYear = null"
+  >
+    General information of the grade
+  </a>
 
-    <!-- Año genérico (reutilizable) -->
-    <template x-for="(year, yearIndex) in [1,2,3,4]" :key="year">
-      <div class="menu-item group p-4 rounded-md mb-2.5 cursor-pointer text-center">
-        <!-- Botón del año -->
-        <div 
-          class="flex justify-between hover:bg-gray-600 rounded-md p-2"
-          @click="openYear = openYear === year ? null : year"
-        >
-          <span x-text="'Year ' + year"></span>
-          <svg :class="{'rotate-180': openYear === year}" class="transition-transform w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-          </svg>
-        </div>
-
-        <!-- Cursos -->
-        <div x-show="openYear === year" class="ml-4 mt-2" x-cloak>
-          <template x-for="course in [1,2,3]" :key="course">
-            <div 
-              class="p-2 cursor-pointer hover:bg-gray-500 rounded-md"
-              :class="{'bg-gray-600': selected === 'year' + year + '-course' + course}"
-              @click="selected = 'year' + year + '-course' + course"
-              x-text="'Course ' + course"
-            ></div>
-          </template>
-        </div>
+  <!-- Año genérico (reutilizable) -->
+  <template x-for="(year, yearIndex) in [1,2,3,4]" :key="year">
+    <div class="menu-item group p-4 rounded-md mb-2.5 cursor-pointer text-center">
+      <!-- Botón del año -->
+      <div 
+        class="flex justify-between hover:bg-gray-600 rounded-md p-2"
+        @click="openYear = openYear === year ? null : year"
+      >
+        <span x-text="'Year ' + year"></span>
+        <svg :class="{'rotate-180': openYear === year}" class="transition-transform w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+        </svg>
       </div>
-    </template>
+
+      <!-- Cursos -->
+      <div x-show="openYear === year" class="ml-4 mt-2" x-cloak>
+        <template x-for="course in [1,2,3]" :key="course">
+          <a 
+            class="block p-2 cursor-pointer hover:bg-gray-500 rounded-md"
+            :class="{'bg-gray-600': selected === 'year' + year + '-course' + course}"
+            :href="'/courses/year' + year + '-course' + course"
+            @click="selected = 'year' + year + '-course' + course"
+            x-text="'Course ' + course"
+          ></a>
+        </template>
+      </div>
+    </div>
+  </template>
 
 </div>
-
