@@ -1,0 +1,194 @@
+---
+import MenuBar from "../components/MenuBar.astro";
+import Footer from "../components/Footer.astro";
+import SidebarCourses from "../components/SidebarCourses.astro";
+import "../styles/global.css";
+---
+
+
+<main class="flex bg-gray-100 min-h-screen">
+
+    <div class="container mx-auto px-6 py-10">
+      <div class="relative max-w-xl mx-auto">
+        <input
+          type="text"
+          placeholder="Search for courses, users or document names"
+          class="w-full p-4 pl-12 rounded-full shadow-md"
+        />
+        <svg
+          class="absolute top-1/2 left-4 transform -translate-y-1/2 h-6 w-6 text-gray-500"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          stroke-width="2"
+          stroke="currentColor"
+          fill="none"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path stroke="none" d="M0 0h24v24H0z"></path>
+          <circle cx="10" cy="10" r="7"></circle>
+          <line x1="21" y1="21" x2="15" y2="15"></line>
+        </svg>
+      </div>
+      <section class="mt-10">
+        <h2 class="text-2xl font-semibold mb-4">Year 2 Course 2</h2>
+        <div class="grid grid-cols-3 gap-6">
+          <div class="bg-blue-300 p-4 rounded-xl shadow-md">
+            <div class="bg-gray-200 h-32 flex items-center justify-center">
+              Document first page preview
+            </div>
+            <div class="flex justify-between items-center mt-2">
+              <svg
+                class="h-6 w-6 text-yellow-500"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                stroke-width="2"
+                stroke="currentColor"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path stroke="none" d="M0 0h24v24H0z"></path>
+                <path
+                  d="M12 17.75l-6.172 3.245 1.179-6.873-4.993-4.867 6.9-1.002L12 2l3.086 6.253 6.9 1.002-4.993 4.867 1.179 6.873z"
+                ></path>
+              </svg>
+            </div>
+            <p class="text-sm">Document name</p>
+            <p class="text-xs text-gray-700">Username</p>
+          </div>
+          <div class="bg-blue-300 p-4 rounded-xl shadow-md">
+            <div class="bg-gray-200 h-32 flex items-center justify-center">
+              Video preview
+            </div>
+            <div class="flex justify-between items-center mt-2">
+              <svg
+                class="h-6 w-6 text-yellow-500"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                stroke-width="2"
+                stroke="currentColor"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path stroke="none" d="M0 0h24v24H0z"></path>
+                <path
+                  d="M12 17.75l-6.172 3.245 1.179-6.873-4.993-4.867 6.9-1.002L12 2l3.086 6.253 6.9 1.002-4.993 4.867 1.179 6.873z"
+                ></path>
+              </svg>
+            </div>
+            <p class="text-sm">Document name</p>
+            <p class="text-xs text-gray-700">Username</p>
+          </div>
+          <div class="bg-blue-300 p-4 rounded-xl shadow-md">
+            <div class="bg-gray-200 h-32 flex items-center justify-center">
+              Document first page preview
+            </div>
+            <div class="flex justify-between items-center mt-2">
+              <svg
+                class="h-6 w-6 text-yellow-500"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                stroke-width="2"
+                stroke="currentColor"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path stroke="none" d="M0 0h24v24H0z"></path>
+                <path
+                  d="M12 17.75l-6.172 3.245 1.179-6.873-4.993-4.867 6.9-1.002L12 2l3.086 6.253 6.9 1.002-4.993 4.867 1.179 6.873z"
+                ></path>
+              </svg>
+            </div>
+            <p class="text-sm">Document name</p>
+            <p class="text-xs text-gray-700">Username</p>
+          </div>
+        </div>
+  
+        <!-- Nueva fila de documentos -->
+        <div class="grid grid-cols-3 gap-6 mt-6">
+          <div class="bg-blue-300 p-4 rounded-xl shadow-md">
+            <div class="bg-gray-200 h-32 flex items-center justify-center">
+              Document first page preview
+            </div>
+            <div class="flex justify-between items-center mt-2">
+              <svg
+                class="h-6 w-6 text-yellow-500"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                stroke-width="2"
+                stroke="currentColor"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path stroke="none" d="M0 0h24v24H0z"></path>
+                <path
+                  d="M12 17.75l-6.172 3.245 1.179-6.873-4.993-4.867 6.9-1.002L12 2l3.086 6.253 6.9 1.002-4.993 4.867 1.179 6.873z"
+                ></path>
+              </svg>
+            </div>
+            <p class="text-sm">Document name</p>
+            <p class="text-xs text-gray-700">Username</p>
+          </div>
+          <div class="bg-blue-300 p-4 rounded-xl shadow-md">
+            <div class="bg-gray-200 h-32 flex items-center justify-center">
+              Video preview
+            </div>
+            <div class="flex justify-between items-center mt-2">
+              <svg
+                class="h-6 w-6 text-yellow-500"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                stroke-width="2"
+                stroke="currentColor"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path stroke="none" d="M0 0h24v24H0z"></path>
+                <path
+                  d="M12 17.75l-6.172 3.245 1.179-6.873-4.993-4.867 6.9-1.002L12 2l3.086 6.253 6.9 1.002-4.993 4.867 1.179 6.873z"
+                ></path>
+              </svg>
+            </div>
+            <p class="text-sm">Document name</p>
+            <p class="text-xs text-gray-700">Username</p>
+          </div>
+          <div class="bg-blue-300 p-4 rounded-xl shadow-md">
+            <div class="bg-gray-200 h-32 flex items-center justify-center">
+              Document first page preview
+            </div>
+            <div class="flex justify-between items-center mt-2">
+              <svg
+                class="h-6 w-6 text-yellow-500"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                stroke-width="2"
+                stroke="currentColor"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path stroke="none" d="M0 0h24v24H0z"></path>
+                <path
+                  d="M12 17.75l-6.172 3.245 1.179-6.873-4.993-4.867 6.9-1.002L12 2l3.086 6.253 6.9 1.002-4.993 4.867 1.179 6.873z"
+                ></path>
+              </svg>
+            </div>
+            <p class="text-sm">Document name</p>
+            <p class="text-xs text-gray-700">Username</p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
