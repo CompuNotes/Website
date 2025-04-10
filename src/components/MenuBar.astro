@@ -3,9 +3,9 @@
     <div class="text-xl font-bold flex flex-1 justify-center">CompuNotes</div>
     <nav class="space-x-6 text-center flex-1">
       <a href="/" class="nav-link">Main menu</a>
-      <a href="/information" class="nav-link">Information</a>
+      <a href="/courses/general" class="nav-link">Information</a>
       <a href="/courses" class="nav-link">Courses</a>
-      <a href="/teachers" class="nav-link">Teachers</a>
+      <a href="#" class="nav-link">Teachers</a>
     </nav>
     <div class="flex-1 flex justify-end">
       <a href="login" class="hover:text-blue-400">
@@ -35,12 +35,11 @@
   // Seleccionar todos los enlaces de navegación
   const links = document.querySelectorAll(".nav-link");
 
-  links.forEach(link => {
+  links.forEach((link) => {
     if (link.getAttribute("href") === currentPath) {
-      link.classList.add("text-blue-300");  // Activo
+      link.classList.add("text-blue-300"); // Activo
     } else {
-      link.classList.add("text-white");  // Inactivo
+      link.classList.add("text-white"); // Inactivo
     }
   });
 </script>
-
