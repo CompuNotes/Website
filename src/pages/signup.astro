@@ -8,35 +8,159 @@ import MenuBarName from "../components/MenuBarName.astro";
 <div class="flex items-center justify-center min-h-screen bg-gray-200">
   <div class="bg-blue-300 p-8 rounded-lg shadow-md w-96">
     <h2 class="text-white text-center text-xl font-bold mb-4">Sign up</h2>
-    <form>
+    <form id="signupForm">
       <input
+        id="username"
         type="text"
         placeholder="Username"
         class="w-full p-2 mb-4 rounded-lg border-none outline-none"
+        required
       />
       <input
+        id="email"
         type="email"
         placeholder="Email"
         class="w-full p-2 mb-4 rounded-lg border-none outline-none"
+        required
       />
       <input
+        id="password"
         type="password"
         placeholder="Password"
         class="w-full p-2 mb-4 rounded-lg border-none outline-none"
+        required
       />
       <input
+        id="confirmPassword"
         type="password"
         placeholder="Confirm password"
         class="w-full p-2 mb-4 rounded-lg border-none outline-none"
+        required
       />
       <button
+        type="submit"
         class="w-full bg-blue-500 text-white p-2 rounded-lg hover:bg-blue-600"
-        >Sign up</button
       >
+        Sign up
+      </button>
       <a href="/login" class="text-white mt-4 block text-center"
         >Already have an account? Log in</a
       >
+      <div
+        id="errorMessage"
+        class="mt-4 text-center text-sm text-red-500 hidden"
+      >
+      </div>
+      <div
+        id="successMessage"
+        class="mt-4 text-center text-sm text-green-500 hidden"
+      >
+      </div>
     </form>
   </div>
 </div>
+
+<script>
+  async function registerUser(username, email, password) {
+    try {
+      const response = await fetch(
+        "https://django.narurm.eu/compunotesapi/users/",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ username, email, password }),
+        }
+      );
+
+      const data = await response.json();
+
+      if (response.ok) {
+        return { success: true, message: "Cuenta creada correctamente." };
+      } else {
+        let messages = [];
+
+        if (data.detail) {
+          messages.push(data.detail);
+        } else if (typeof data === "object") {
+          for (const key in data) {
+            if (Array.isArray(data[key])) {
+              messages.push(...data[key]);
+            } else {
+              messages.push(data[key]);
+            }
+          }
+        }
+
+        return {
+          success: false,
+          messages: messages.length > 0 ? messages : ["Error en el registro."],
+        };
+      }
+    } catch (error) {
+      return { success: false, messages: [error.message] };
+    }
+  }
+
+  document
+    .getElementById("signupForm")
+    .addEventListener("submit", async function (event) {
+      event.preventDefault();
+
+      const username = document.getElementById("username").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value;
+      const confirmPassword = document.getElementById("confirmPassword").value;
+      const errorMessage = document.getElementById("errorMessage");
+      const successMessage = document.getElementById("successMessage");
+
+      errorMessage.classList.add("hidden");
+      successMessage.classList.add("hidden");
+      errorMessage.innerHTML = "";
+
+      // Validaciones frontend
+      let validationErrors = [];
+
+      if (password.length < 8) {
+        validationErrors.push(
+          "La contraseña debe tener al menos 8 caracteres."
+        );
+      }
+
+      if (/^\d+$/.test(password)) {
+        validationErrors.push("La contraseña no puede ser solo numérica.");
+      }
+
+      if (password !== confirmPassword) {
+        validationErrors.push("Las contraseñas no coinciden.");
+      }
+
+      if (validationErrors.length > 0) {
+        const errorList = validationErrors
+          .map((msg) => `<li>${msg}</li>`)
+          .join("");
+        errorMessage.innerHTML = `<ul>${errorList}</ul>`;
+        errorMessage.classList.remove("hidden");
+        return;
+      }
+
+      const result = await registerUser(username, email, password);
+
+      if (result.success) {
+        successMessage.textContent = result.message;
+        successMessage.classList.remove("hidden");
+        setTimeout(() => {
+          window.location.href = "/login";
+        }, 2000);
+      } else {
+        const errorList = result.messages
+          .map((msg) => `<li>${msg}</li>`)
+          .join("");
+        errorMessage.innerHTML = `<ul>${errorList}</ul>`;
+        errorMessage.classList.remove("hidden");
+      }
+    });
+</script>
+
 <Footer />
