@@ -18,11 +18,25 @@ async function loginUser(username, password) {
 
             document.cookie = `accessToken=${accessToken}; path=/; max-age=3600`;
             console.log("Login exitoso ✅");
+
+            return {
+                success: true,
+                accessToken,
+                refreshToken
+            };
         } else {
             console.error("No se encontraron los tokens en la respuesta:", response.data);
+            return {
+                success: false,
+                message: "Tokens no encontrados"
+            };
         }
 
     } catch (error) {
         console.error("Error en el login:", error.response?.data || error.message);
+        return {
+            success: false,
+            message: error.response?.data || error.message
+        };
     }
 }
