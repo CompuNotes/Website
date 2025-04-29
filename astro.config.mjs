@@ -15,6 +15,7 @@ export default defineConfig({
 
   trailingSlash: 'never',
   output: 'server',
+    outDir: './ServerFiles',
 
   adapter: node({
     mode: 'standalone',
