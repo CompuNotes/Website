@@ -4,27 +4,62 @@ import Footer from "../components/Footer.astro";
 import "../styles/global.css";
 ---
 
+<!--Revert -->
 <MenuBar />
 
 <main class="flex p-8">
   <!-- Document Preview -->
   <section class="w-2/3 flex justify-center">
-    <div class="bg-white shadow-md p-8 w-2/3 min-h-[800px] flex flex-col items-center">
+    <div
+      class="bg-white shadow-md p-8 w-2/3 min-h-[800px] flex flex-col items-center"
+    >
       <p class="text-gray-500 mt-40">Document first page preview</p>
       <div class="mt-auto flex gap-4 pt-10">
-        <button class="border rounded-full p-2"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
-        </svg>
+        <button class="border rounded-full p-2"
+          ><svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            class="w-6 h-6"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M5 15l7-7 7 7"></path>
+          </svg>
         </button>
-        <button class="border rounded-full p-2"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-        </svg>
+        <button class="border rounded-full p-2"
+          ><svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            class="w-6 h-6"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M19 9l-7 7-7-7"></path>
+          </svg>
         </button>
         <button class="bg-blue-300 px-4 py-2 rounded flex items-center gap-1">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5v14l7-5 7 5V5a2 2 0 00-2-2H7a2 2 0 00-2 2z" />
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            class="w-6 h-6"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M5 5v14l7-5 7 5V5a2 2 0 00-2-2H7a2 2 0 00-2 2z"></path>
           </svg>
-           Save
+          Save
         </button>
       </div>
     </div>
@@ -62,9 +97,22 @@ import "../styles/global.css";
       </div>
     </div>
 
-    <button class="flex items-center gap-2 bg-blue-300 px-4 py-2 rounded text-white font-semibold mb-6">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5m0 0l5-5m-5 5V4" />
+    <button
+      class="flex items-center gap-2 bg-blue-300 px-4 py-2 rounded text-white font-semibold mb-6"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        class="w-6 h-6"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5m0 0l5-5m-5 5V4"
+        ></path>
       </svg>
       Download document
     </button>
@@ -78,21 +126,24 @@ import "../styles/global.css";
       />
 
       <!-- Comments -->
-      {[1, 2, 3].map((_, i) => (
-        <div class="flex items-start space-x-2 mb-4">
-          <img
-            src="/src/assets/person-circle-outline.png"
-            alt="User"
-            class="w-10 h-10 rounded-full"
-          />
-          <div>
-            <p class="font-semibold text-sm">Username</p>
-            <p class="text-sm text-gray-600">
-              Lorem ipsum dolor sit amet consectetur adipiscing elit, felis lacus sapien imperdiet eu tempus cum.
-            </p>
+      {
+        [1, 2, 3].map((_, i) => (
+          <div class="flex items-start space-x-2 mb-4">
+            <img
+              src="/src/assets/person-circle-outline.png"
+              alt="User"
+              class="w-10 h-10 rounded-full"
+            />
+            <div>
+              <p class="font-semibold text-sm">Username</p>
+              <p class="text-sm text-gray-600">
+                Lorem ipsum dolor sit amet consectetur adipiscing elit, felis
+                lacus sapien imperdiet eu tempus cum.
+              </p>
+            </div>
           </div>
-        </div>
-      ))}
+        ))
+      }
     </div>
   </aside>
 </main>
