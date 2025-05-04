@@ -1,3 +1,4 @@
+  //Buscar documentos por titulo y nombre de usuario
   const searchInput = document.getElementById("searchInput");
   const resultsContainer = document.getElementById("results");
 
