@@ -1,0 +1,64 @@
+---
+import MenuBar from "../../components/MenuBar.astro";
+import Footer from "../../components/Footer.astro";
+import SidebarInfo from "../../components/SidebarCourses.astro";
+import "../../styles/global.css";
+
+export async function getStaticPaths() {
+  return [
+    { params: { slug: 'generalDocs' } },
+    { params: { slug: 'year1-course1-docs' } },
+    { params: { slug: 'year1-course2-docs' } },
+    { params: { slug: 'year1-course3-docs' } },
+    { params: { slug: 'year2-course1-docs' } },
+    { params: { slug: 'year2-course2-docs' } },
+    { params: { slug: 'year2-course3-docs' } },
+    { params: { slug: 'year3-course1-docs' } },
+    { params: { slug: 'year3-course2-docs' } },
+    { params: { slug: 'year3-course3-docs' } },
+    { params: { slug: 'year4-course1-docs' } },
+    { params: { slug: 'year4-course2-docs' } },
+    { params: { slug: 'year4-course3-docs' } }
+  ];
+}
+
+
+// 👇 Aquí forzamos que slug es un string
+const { slug } = Astro.params as { slug: string };
+
+// Diccionario que enlaza cada slug con su componente
+const courseComponents = {
+  "generalDocs": (await import("../../coursesDocs/generalDocs.astro")).default,
+  "year1-course1-docs": (await import("../../coursesDocs/year1-course1-docs.astro")).default,
+  "year1-course2-docs": (await import("../../coursesDocs/year1-course2-docs.astro")).default,
+  "year1-course3-docs": (await import("../../coursesDocs/year1-course3-docs.astro")).default,
+  "year2-course1-docs": (await import("../../coursesDocs/year2-course1-docs.astro")).default,
+  "year2-course2-docs": (await import("../../coursesDocs/year2-course2-docs.astro")).default,
+  "year2-course3-docs": (await import("../../coursesDocs/year2-course3-docs.astro")).default,
+  "year3-course1-docs": (await import("../../coursesDocs/year3-course1-docs.astro")).default,
+  "year3-course2-docs": (await import("../../coursesDocs/year3-course2-docs.astro")).default,
+  "year3-course3-docs": (await import("../../coursesDocs/year3-course3-docs.astro")).default,
+  "year4-course1-docs": (await import("../../coursesDocs/year4-course1-docs.astro")).default,
+  "year4-course2-docs": (await import("../../coursesDocs/year4-course2-docs.astro")).default,
+  "year4-course3-docs": (await import("../../coursesDocs/year4-course3-docs.astro")).default,
+};
+
+// Verificamos si el slug existe y lo asignamos, si no, es null
+const CourseComponent = slug in courseComponents
+  ? courseComponents[slug as keyof typeof courseComponents]
+  : null;
+---
+<MenuBar />
+<main class="flex bg-gray-100 min-h-screen">
+  <SidebarInfo />
+  <section class="flex flex-col w-full p-10">
+    {CourseComponent ? (
+      <CourseComponent />
+    ) : (
+      <div class="text-center text-red-600 text-xl font-semibold">
+        Curso no encontrado: <code>{slug}</code>
+      </div>
+    )}
+  </section>
+</main>
+<Footer />
