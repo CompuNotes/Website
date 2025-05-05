@@ -1,0 +1,35 @@
+---
+import MenuBarName from "../components/MenuBarName.astro";
+import Footer from "../components/Footer.astro";
+import "../styles/global.css";
+---
+
+<MenuBarName />
+
+<!--Back to login -->
+
+<div class="flex items-center justify-center min-h-screen bg-gray-200">
+  <div class="bg-blue-300 p-8 rounded-lg shadow-md w-96">
+    <h2 class="text-white text-center text-xl font-bold mb-4">
+      Recover Password
+    </h2>
+    <form id="loginForm">
+      <input
+        id="username"
+        type="text"
+        placeholder="Email or username"
+        class="w-full p-2 mb-4 rounded-lg border-none outline-none"
+        required
+      />
+      <a
+        href="#"
+        type="submit"
+        class="text-center w-full bg-blue-400 text-white p-2 rounded-lg hover:bg-blue-600"
+      >
+        Recover
+      </a>
+    </form>
+  </div>
+</div>
+
+<Footer />
