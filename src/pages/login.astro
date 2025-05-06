@@ -37,15 +37,19 @@ import "../styles/global.css";
     <div class="mt-4 text-center text-sm text-gray-700">
       <a href="signup" class="underline">Create an account</a>
       <p>or</p>
-
-      <!--TODO -->
       <a href="./Passwd" class="underline">Forgot password?</a>
     </div>
   </div>
 </div>
 
-<!-- Script con toda la lógica -->
 <script>
+  // ✅ Si ya hay sesión activa, ir directo a /myArea
+  const existingToken = localStorage.getItem("accessToken");
+  if (existingToken) {
+    console.log("Sesión ya iniciada. Redirigiendo a /myArea...");
+    window.location.href = "/myArea";
+  }
+
   async function loginUser(username, password) {
     try {
       const response = await fetch(
@@ -62,10 +66,20 @@ import "../styles/global.css";
       const data = await response.json();
 
       if (response.ok && data.access && data.refresh) {
+        // Guardar en localStorage
         localStorage.setItem("accessToken", data.access);
         localStorage.setItem("userId", data.user_id);
         localStorage.setItem("username", username);
         localStorage.setItem("refreshToken", data.refresh);
+
+        // Guardar también en cookies (expiran en 7 días)
+        const expires = new Date(
+          Date.now() + 7 * 24 * 60 * 60 * 1000
+        ).toUTCString();
+        document.cookie = `accessToken=${data.access}; expires=${expires}; path=/; secure`;
+        document.cookie = `refreshToken=${data.refresh}; expires=${expires}; path=/; secure`;
+        document.cookie = `username=${username}; expires=${expires}; path=/; secure`;
+
         return { success: true };
       } else {
         return {
@@ -89,10 +103,13 @@ import "../styles/global.css";
 
       try {
         const response = await loginUser(username, password);
+        console.log("Login response:", response);
 
         if (response.success) {
-          window.location.href = "/myArea"; // Redirección al dashboard o área privada
+          console.log("Login correcto. Redirigiendo a /myArea...");
+          window.location.href = "/myArea";
         } else {
+          console.error("Login fallido:", response.message);
           throw new Error(
             response.message || "Nombre de usuario o contraseña incorrectos."
           );

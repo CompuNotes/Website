@@ -8,7 +8,7 @@
       <a href="/teachers" class="nav-link">Teachers</a>
     </nav>
     <div class="flex-1 flex justify-end items-center space-x-4">
-      <a href="login" class="hover:text-blue-400">
+      <a href="login" class="hover:text-blue-400" id="loginIcon">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           class="w-10 h-10 text-white bg-gray-700 rounded-full p-2"
@@ -24,28 +24,56 @@
           ></path>
         </svg>
       </a>
-      <a
-        href="/"
-        class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
+      <button
+        id="logoutBtn"
+        class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 hidden"
       >
         Logout
-      </a>
+      </button>
     </div>
   </div>
 </header>
 
 <script>
-  // Obtener la ruta actual
+  // Marcar ruta activa
   const currentPath = window.location.pathname;
-
-  // Seleccionar todos los enlaces de navegación
-  const links = document.querySelectorAll(".nav-link");
-
-  links.forEach((link) => {
+  document.querySelectorAll(".nav-link").forEach((link) => {
     if (link.getAttribute("href") === currentPath) {
-      link.classList.add("text-blue-300"); // Activo
+      link.classList.add("text-blue-300");
     } else {
-      link.classList.add("text-white"); // Inactivo
+      link.classList.add("text-white");
     }
+  });
+
+  // Mostrar/ocultar botón de logout según sesión
+  const logoutBtn = document.getElementById("logoutBtn");
+  const loginIcon = document.getElementById("loginIcon");
+  const accessToken = localStorage.getItem("accessToken");
+
+  if (accessToken) {
+    logoutBtn.classList.remove("hidden");
+    loginIcon.classList.add("hidden");
+  }
+
+  // Función para borrar cookies
+  function deleteCookie(name) {
+    document.cookie = name + "=; Max-Age=0; path=/; secure";
+  }
+
+  // Evento de logout
+  logoutBtn.addEventListener("click", () => {
+    // Borrar localStorage
+    localStorage.removeItem("accessToken");
+    localStorage.removeItem("refreshToken");
+    localStorage.removeItem("userId");
+    localStorage.removeItem("username");
+
+    // Borrar cookies
+    deleteCookie("accessToken");
+    deleteCookie("refreshToken");
+    deleteCookie("username");
+
+    // Redirigir
+    window.location.href = "/login";
   });
 </script>
