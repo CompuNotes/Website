@@ -25,6 +25,7 @@ import "../styles/global.css";
               class="rounded-lg p-2 border border-gray-300 w-full"
               type="file"
             />
+            <label for="tag-select" class="text-gray-700">Select tag</label>
             <select
               id="tag-select"
               class="rounded-lg p-2 border border-gray-300 w-full"
@@ -140,7 +141,7 @@ import "../styles/global.css";
     container.innerHTML = "<p class='text-gray-500'>Loading your files...</p>";
 
     try {
-      const res = await fetch("https://django.narurm.eu/compunotesapi/file/", {
+      const res = await fetch("https://django.narurm.eu/compunotesapi/file/?ordering=-avg_rating", {
         headers: {
           Authorization: `Bearer ${accessToken}`,
         },
